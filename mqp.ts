@@ -7,7 +7,7 @@ interface MySqlQueryData<T, K extends keyof T> {
   values: Array<T[K] | null>;
 }
 
-export const mySqlQueryBuilder = <T, K extends keyof T>(
+export const queryBuilder = <T, K extends keyof T>(
   query: string,
   data?: T,
   options: ReplaceOptions = {useNullForMissing: true}
@@ -67,5 +67,3 @@ const errorMissingValue = <T>(key: string, query: string, data: T) => {
     Data provided: ${JSON.stringify(data)}`
   );
 };
-
-export default mySqlQueryBuilder;
